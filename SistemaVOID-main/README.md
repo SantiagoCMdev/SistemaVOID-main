@@ -90,3 +90,34 @@ mvn test
 ## Licencia
 
 Este proyecto esta bajo una licencia de uso privada para fines academicos y de desarrollo.
+
+La aplicacion web estara disponible en:
+http://localhost:3000
+
+Tambien es posible ejecutar los scripts por lotes incluidos en el proyecto:
+- start-server.bat para levantar el backend.
+- start-frontend.bat para levantar el frontend.
+- start-all.bat para iniciar ambos componentes simultaneamente.
+
+## Pruebas Automatizadas
+
+El backend incluye una suite completa de pruebas unitarias implementadas con JUnit 5, Mockito y AssertJ sin levantar el contexto pesado de Spring, garantizando ejecuciones rapidas y aisladas:
+
+- RegisterUserUseCaseTest: Registro de usuarios y control de correos duplicados.
+- LoginUserUseCaseTest: Autenticacion de credenciales y emision de tokens.
+- ManageSubscriptionUseCaseTest: Creacion de suscripciones, facturacion, upgrades, downgrades y cancelacion.
+- PlaybackUseCaseTest: Control de sesiones concurrentes con Redis y sincronizacion de progreso.
+- UpdateUserProfileUseCaseTest: Actualizacion de datos de usuario y validaciones.
+- UpdateUserSettingsUseCaseTest: Configuracion granular de preferencias.
+
+Para ejecutar toda la suite de pruebas del backend:
+
+```bash
+cd void-spring
+mvn test
+```
+
+## Licencia
+
+Este proyecto esta bajo una licencia de uso privada para fines academicos y de desarrollo.
+
