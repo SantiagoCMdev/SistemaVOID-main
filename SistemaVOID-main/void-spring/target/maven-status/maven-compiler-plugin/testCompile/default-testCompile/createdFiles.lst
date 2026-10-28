@@ -1,0 +1,11 @@
+com\voidapp\core\application\usecase\ManageSubscriptionUseCaseTest.class
+com\voidapp\core\application\usecase\UpdateUserSettingsUseCaseTest.class
+com\voidapp\core\application\usecase\RegisterUserUseCaseTest.class
+com\voidapp\core\application\usecase\PlaybackUseCaseTest$SyncProgressTests.class
+com\voidapp\core\application\usecase\ManageSubscriptionUseCaseTest$SubscribeInitialTests.class
+com\voidapp\core\application\usecase\ManageSubscriptionUseCaseTest$ChangePlanTests.class
+com\voidapp\core\application\usecase\UpdateUserProfileUseCaseTest.class
+com\voidapp\core\application\usecase\PlaybackUseCaseTest$AuthorizePlaybackSessionTests.class
+com\voidapp\core\application\usecase\PlaybackUseCaseTest.class
+com\voidapp\core\application\usecase\LoginUserUseCaseTest.class
+com\voidapp\core\application\usecase\ManageSubscriptionUseCaseTest$CancelAutoRenewalTests.class

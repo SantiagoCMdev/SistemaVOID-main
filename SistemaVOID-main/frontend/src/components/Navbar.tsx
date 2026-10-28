@@ -4,10 +4,8 @@ import Link from 'next/link';
 import { Search, Plus, Bell, User } from 'lucide-react';
 import { useScrolled } from '@/hooks/useScrolled';
 import VoidLogo from '@/components/ui/VoidLogo';
-import { useState, useEffect } from 'react';
-import { authService } from '@/services/auth.service';
+import { useState } from 'react';
 import UserDropdown from './UserDropdown';
-import AuthModal from './AuthModal';
 import SettingsModal from './SettingsModal';
 
 const NAV_LINKS = [
@@ -22,24 +20,11 @@ export default function Navbar() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   
-  // Simulated user state
-  const [user, setUser] = useState<{name: string; email: string; plan: string; role?: string} | null>(null);
-
-  useEffect(() => {
-    const currentUser = authService.getCurrentUser();
-    if (currentUser) {
-      setUser({
-        name: currentUser.fullName,
-        email: currentUser.email,
-        plan: 'Plan Premium', // Hardcoded as requested
-        role: currentUser.role
-      });
-    }
-  }, []);
-
-  const handleLogout = () => {
-    setUser(null);
-    authService.logout();
+  // Default user state (sin requerir inicio de sesión)
+  const defaultUser = {
+    name: 'Usuario VOID',
+    email: 'usuario@voidapp.com',
+    plan: 'Plan Premium',
   };
 
   return (
@@ -86,10 +71,8 @@ export default function Navbar() {
 
           {/* User Dropdown */}
           <UserDropdown 
-            user={user}
-            onOpenAuth={() => window.location.href = '/login'}
+            user={defaultUser}
             onOpenSettings={() => setIsSettingsOpen(true)}
-            onLogout={handleLogout}
           />
         </div>
       </nav>
@@ -116,7 +99,7 @@ export default function Navbar() {
       <SettingsModal 
         isOpen={isSettingsOpen} 
         onClose={() => setIsSettingsOpen(false)} 
-        user={user}
+        user={defaultUser}
       />
     </>
   );

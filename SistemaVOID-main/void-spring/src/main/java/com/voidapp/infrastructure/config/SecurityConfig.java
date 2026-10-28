@@ -54,7 +54,7 @@ public class SecurityConfig {
                 .requestMatchers("/users").permitAll() // from Phase 1
                 .requestMatchers("/h2-console/**").permitAll()
                 .requestMatchers("/error").permitAll()
-                .anyRequest().authenticated()
+                .anyRequest().permitAll() // Permitido temporalmente sin requerir inicio de sesión
             )
             .headers(headers -> headers.frameOptions(frame -> frame.disable()))
             .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
