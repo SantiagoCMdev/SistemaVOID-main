@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+/* ============================================================
+   VOID Streaming Platform — Global Styles
+   ============================================================ */
+
+@theme {
+  /* ── Color Palette ── */
+  --color-void-black: #050507;
+  --color-void-black-secondary: #0B0A10;
+  --color-void-gray-dark: #14131A;
+  --color-void-gray-surface: #1B1922;
+  --color-void-gray-border: #252330;
+  --color-void-purple: #7C3AED;
+  --color-void-purple-deep: #5B21B6;
+  --color-void-purple-glow: #9B5CFF;
+  --color-void-white: #F5F3FF;
+  --color-void-gray-light: #A7A3B5;
+  --color-void-gray-muted: #6B6780;
+}
+
+/* ── Base resets ── */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-void-gray-surface) transparent;
+}
+
+html {
+  background-color: var(--color-void-black);
+  color: var(--color-void-white);
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ── Selection ── */
+::selection {
+  background: rgba(124, 58, 237, 0.35);
+  color: #F5F3FF;
+}
+
+/* ── Focus visible ── */
+:focus-visible {
+  outline: 2px solid var(--color-void-purple);
+  outline-offset: 2px;
+}
+
+/* ── Custom scrollbar (webkit) ── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-void-gray-surface);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-void-gray-muted);
+}
+
+/* ── Horizontal scroll rows (hide scrollbar) ── */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── Progress bar ── */
+.void-progress {
+  appearance: none;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--color-void-gray-surface);
+  overflow: hidden;
+}
+.void-progress::-webkit-progress-bar {
+  background: var(--color-void-gray-surface);
+  border-radius: 2px;
+}
+.void-progress::-webkit-progress-value {
+  background: var(--color-void-purple);
+  border-radius: 2px;
+}
+.void-progress::-moz-progress-bar {
+  background: var(--color-void-purple);
+  border-radius: 2px;
+}
+
+/* ── Scroll reveal animation ── */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
